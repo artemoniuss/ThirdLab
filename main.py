@@ -14,14 +14,19 @@ def create_input_form():
     text_field = ft.TextField(label="Текст песни", width=300, multiline=True)
 
     def save_button_click(e):
-        track = Track(name_field.value, author_field.value, creation_date_field.value, play_time_field.value, text_field.value)
-        tracks.append(track)
-        logging.info("data saved")
-        name_field.value = ""
-        author_field.value = ""
-        creation_date_field.value = ""
-        play_time_field.value = ""
-        text_field.value = ""
+        if not (name_field.value == ""):
+            if not (author_field.value == ""):
+                if not (creation_date_field.value == ""):
+                    if not (play_time_field.value == ""):
+                        if not (text_field.value == ""):
+                            track = Track(name_field.value, author_field.value, creation_date_field.value, play_time_field.value, text_field.value)
+                            tracks.append(track)
+                            logging.info("data saved")
+                            name_field.value = ""
+                            author_field.value = ""
+                            creation_date_field.value = ""
+                            play_time_field.value = ""
+                            text_field.value = ""
 
     save_button = ft.ElevatedButton("Save", on_click=save_button_click)
 
